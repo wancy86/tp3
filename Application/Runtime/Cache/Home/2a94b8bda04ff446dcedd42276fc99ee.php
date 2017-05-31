@@ -1,4 +1,4 @@
-<style type="text/css">
+<?php if (!defined('THINK_PATH')) exit();?><style type="text/css">
 * {
     padding: 0;
     margin: 0;
@@ -34,7 +34,7 @@ a:hover {
 <div style="padding: 24px 48px;">
     <h1>:)</h1>
     <p>欢迎使用 <b>ThinkPHP</b>！</p>
-    <br/>版本 V{$Think.version}</div>
+    <br/>版本 V<?php echo (THINK_VERSION); ?></div>
 <script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script>
 <thinkad id="ad_55e75dfae343f5a1"></thinkad>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>
