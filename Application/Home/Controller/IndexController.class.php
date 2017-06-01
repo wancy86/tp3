@@ -4,30 +4,24 @@ use Think\Controller;
 
 class IndexController extends Controller {
 	public function index() {
-        echo "<br>"."test mysql connect...";
-		$con = mysqli_connect("localhost:3306", "root", "max123");
-        mysqli_query('create database if not exists tptest;', $con);
-        mysqli_commit();
-		mysqli_select_db('tptest', $con);
-        // mysqli_query('create table if not exists users(uid int, name varchar(20));', $con);
-        // mysqli_commit();
+		echo "<br>" . "test mysql connect...";
+		$con = mysqli_connect("localhost:3306", "root", "max123", "tp3");
+		// $con = new mysqli("localhost:3306", "root", "max123", "tp3");
+		$con->autocommit($con, true);
 
-       if ($con) {
-            echo "<br>" . "111";
-        } else {
-            echo "<br>" . "222";
-        }
+		// mysqli_query($conn,$sql) or die(mysqli_error( $conn ));
 
-		// $result = mysqli_query('select * from session;', $con);
+        // if ($result = mysqli_query($con, "SELECT * from user;") or die(mysqli_error($conn))) {
+		if ($result = $con->query("SELECT * from user;") or die(mysqli_error($conn))) {
 
-		// $row = mysqli_fetch_array($result);
-		// echo "<br>:" . $row[0];
-
-		// if (!$result) {
-		// 	echo $result;
-		// } else {
-		// 	echo "<br>" . "xxxx";
-		// }
+			// while ($row = mysqli_fetch_row($result)) {
+            while ($row = $result->fetch_row()) {
+				echo "<br>row" . $row[0];
+				echo "<br>row" . $row[1];
+				echo "<br>row" . $row[2];
+			}
+			mysqli_free_result($result);
+		}
 
 		$this->display();
 	}
