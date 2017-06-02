@@ -26,7 +26,20 @@ class IndexController extends Controller {
 		$this->display();
 	}
 
-	public function test() {
-		$this->show('123');
+	public function testM() {
+        //不需要model类，直接建立对数据表的增删改查        
+        $data = M('user');
+        $result = $data->find(1);
+        echo "<br>".$result['uid'];
+        foreach ($result as $key => $value) {
+            echo "<br>".$key.": ".$value;
+        }
 	}
+
+    public function testD($value='')
+    {
+        # code...
+        echo "<br>"."test D()";
+
+    }
 }

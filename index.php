@@ -29,4 +29,3 @@ require './ThinkPHP/ThinkPHP.php';
 
 // 亲^_^ 后面不需要任何代码了 就是如此简单
 
-$con = new mysqli("localhost:3306", "root", "max123", "qba_db");
